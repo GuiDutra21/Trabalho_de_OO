@@ -417,7 +417,7 @@ public class PatrimonyScreen implements ActionListener{
 					{
 						try
 						{
-							area = Integer.parseInt(textFields.get(4).getText());
+							area = Double.parseDouble(textFields.get(4).getText());
 							
 							verVH[4] = true;
 							

@@ -200,9 +200,11 @@ public class Company extends Enterprises {
 		
 		filialName = filialName.toLowerCase();
 		for(int i = 0; i < filials.size(); i++) {
-			if(filials.get(i).getName().toLowerCase().equals(filialName)) {
+			if(filials.get(i).getName().toLowerCase().equals(filialName)) 
+			{
 				filials.remove(i);
 				verifica = true;
+				return true;
 			}
 			
 		}

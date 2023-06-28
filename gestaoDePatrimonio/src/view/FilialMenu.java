@@ -543,7 +543,8 @@ public class FilialMenu implements ActionListener {
 		
 		if(buttons.size() > 4) {
 			int labelsindice = 8;
-			for(int i = 4; i < buttons.size(); i++) {
+			for(int i = 4; i < buttons.size(); i++) 
+			{
 				if(i % 2 == 0) 
 				{
 					if(e.getSource().equals(buttons.get(i)))
@@ -551,6 +552,8 @@ public class FilialMenu implements ActionListener {
 						
 						if(c.isVehicle(name, labels.get(labelsindice).getText()))
 						{
+							System.out.println(i);
+							System.out.println(labelsindice);
 							jf.dispose();
 							new EditPatrimony(labels.get(labelsindice).getText(),PatrimonyScreen.Tipo.VEHICLE,c,name);
 						}
@@ -560,7 +563,7 @@ public class FilialMenu implements ActionListener {
 							new EditPatrimony(labels.get(labelsindice).getText(),PatrimonyScreen.Tipo.BUILDINGS,c, name);
 						}
 						
-						labelsindice+= 12;
+						
 						
 					}
 				}
@@ -571,11 +574,11 @@ public class FilialMenu implements ActionListener {
 						c.getCompany().remove(name,labels.get(labelsindice).getText());
 						jf.dispose();
 						new FilialMenu(c,name);
-						labelsindice+= 12;
+						
 					}
+					labelsindice+= 12;
 					
 				}
-				
 				
 			}
 		}

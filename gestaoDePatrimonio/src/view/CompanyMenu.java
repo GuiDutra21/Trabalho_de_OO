@@ -271,40 +271,46 @@ public class CompanyMenu implements ActionListener{
 		
 		if(e.getSource().equals(buttons.get(1))){
 			
-			c.editAddress(c, ControlerCompany.IS_COMPANY);
 			jf.dispose();
-			jf = null;
+			c.editAddress(c, ControlerCompany.IS_COMPANY);
+
 				
 		}
 		
 		if(e.getSource().equals(button1)) {
-			new FilialScreen(c);
 			jf.dispose();
-			jf = null;
+			new FilialScreen(c);
+		
 		}
 		
 		if(buttons.size() >=4  && e.getSource().equals( buttons.get(3))) {
-			new FilialScreen(c);
 			jf.dispose();
+			new FilialScreen(c);
 			jf = null;
 		}
 		
-		int indiceFiliais = -1; 
+		int indiceFiliais = -1;
+
 		for(int i = 0; i < c.getCompany().getFilials().size() * 3;i+= 3) {
 			indiceFiliais ++;
+			
 			if(e.getSource().equals(buttons.get(4 + i))) 
 			{
+				jf.dispose();
 				new FilialMenu(c,c.getCompany().getFilials().get(indiceFiliais).getName());
-				//JOptionPane.showMessageDialog(jf, "achou1");
+			
 			} 
 			else if(e.getSource().equals(buttons.get(5 + i))) 
 			{
-				//JOptionPane.showMessageDialog(jf, "achou2");
+				 
 			}
 			else if(e.getSource().equals(buttons.get(6 + i)))
 			{
-				//JOptionPane.showMessageDialog(jf, "achou3");
+				c.getCompany().remove(c.getCompany().getFilials().get(indiceFiliais));
+				jf.dispose();
+				new CompanyMenu(c);
 			}
+		
 		}
 		
 		

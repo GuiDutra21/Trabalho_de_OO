@@ -113,7 +113,7 @@ public class ControlerCompany {
 		} else {
 			return false;
 		}
-			
+		
 	}
 	
 	public void companyScreean() {
