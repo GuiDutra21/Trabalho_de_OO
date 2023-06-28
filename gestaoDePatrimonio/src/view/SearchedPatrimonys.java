@@ -376,8 +376,8 @@ public class SearchedPatrimonys implements ActionListener {
 						{
 							jf.dispose();
 							
-							new EditPatrimony(labels.get(indiceLabelsPName).getText(), PatrimonyScreen.Tipo.VEHICLE,c,
-									labels.get(indiceLabels).getText());
+							new EditPatrimony(labels.get(indiceLabelsPName).getText(), PatrimonyScreen.Tipo.VEHICLE,c, EditPatrimony.EDITAR,
+									labels.get(indiceLabels).getText(),searchedName);
 							
 						}
 						
@@ -387,8 +387,8 @@ public class SearchedPatrimonys implements ActionListener {
 					{
 						if(e.getSource().equals(buttons.get(i)))
 						{
-							new EditPatrimony(labels.get(indiceLabelsPName).getText(), PatrimonyScreen.Tipo.BUILDINGS,c,
-									labels.get(indiceLabels).getText());
+							new EditPatrimony(labels.get(indiceLabelsPName).getText(), PatrimonyScreen.Tipo.BUILDINGS,c,EditPatrimony.EDITAR,
+									labels.get(indiceLabels).getText(), searchedName);
 						}
 						
 					}
