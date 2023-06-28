@@ -161,10 +161,6 @@ public class FilialEdit implements ActionListener{
 						
 					} else
 						{
-							c.getCompany().getAddress().setCountry(textFields.get(1).getText());
-							c.getCompany().getAddress().setState(textFields.get(2).getText());
-							c.getCompany().getAddress().setCity(textFields.get(3).getText());
-							c.getCompany().getAddress().setStreet(textFields.get(4).getText());
 						
 							boolean verifica = false;
 						
@@ -192,12 +188,25 @@ public class FilialEdit implements ActionListener{
 										 	}
 									}	
 							}
+							boolean ver = false;
 							
-						
-							 c.getCompany().editFilial(textFields.get(0).getText(), new Address(textFields.get(1).getText(),
-									textFields.get(2).getText(),textFields.get(3).getText(),textFields.get(4).getText(), number));
+							if(textFields.get(0).getText().equals(filialName)) 
+							{
+								ver = true;
+							} 
+							else
+							{
+								 ver = c.getCompany().editFilial(filialName,textFields.get(0).getText());
+							}
 								
+							
 							if(ver) {
+								c.creatAddresstoFilial(textFields.get(0).getText());
+								c.getFilial(textFields.get(0).getText()).getAddress().setCountry(textFields.get(1).getText());
+								c.getFilial(textFields.get(0).getText()).getAddress().setState(textFields.get(2).getText());
+								c.getFilial(textFields.get(0).getText()).getAddress().setCity(textFields.get(3).getText());
+								c.getFilial(textFields.get(0).getText()).getAddress().setStreet(textFields.get(4).getText());
+								c.getFilial(textFields.get(0).getText()).getAddress().setNumber(number);
 								new CompanyMenu(c);
 								jf.dispose();
 								jf = null;

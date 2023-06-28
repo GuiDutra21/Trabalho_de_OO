@@ -234,6 +234,11 @@ public class ControlerCompany {
 		this.getBuildings(filialName, name).setAddress(new Address());
 	}
 	
+	public void creatAddresstoFilial(String filialName)
+	{
+		getFilial(filialName).setAddress(new Address());
+	}
+	
 	//return a list of patrimonys based in a name
 	public List<Patrimony> searchPatrimony(String searchedName)
 	{	 searchedName = searchedName.toLowerCase();

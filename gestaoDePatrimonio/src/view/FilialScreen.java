@@ -150,12 +150,12 @@ public class FilialScreen implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(button)) 
 		{
-			if(textFields.get(0).getText().isEmpty() && textFields.get(0).getText().isEmpty() && textFields.get(0).getText().isEmpty() &&
-					textFields.get(0).getText().isEmpty() && textFields.get(0).getText().isEmpty() && textFields.get(0).getText().isEmpty() )
+			if(textFields.get(0).getText().isEmpty() && textFields.get(1).getText().isEmpty() && textFields.get(2).getText().isEmpty() &&
+					textFields.get(3).getText().isEmpty() && textFields.get(4).getText().isEmpty() && textFields.get(5).getText().isEmpty() )
 			{
-				new CompanyMenu(c);
 				jf.dispose();
-				jf = null;
+				new CompanyMenu(c);
+			
 				
 			} else  {
 				if(textFields.get(0).getText().isEmpty()) 
@@ -164,10 +164,6 @@ public class FilialScreen implements ActionListener{
 					
 				} else
 					{
-						c.getCompany().getAddress().setCountry(textFields.get(1).getText());
-						c.getCompany().getAddress().setState(textFields.get(2).getText());
-						c.getCompany().getAddress().setCity(textFields.get(3).getText());
-						c.getCompany().getAddress().setStreet(textFields.get(4).getText());
 					
 						boolean verifica = false;
 					
@@ -200,10 +196,15 @@ public class FilialScreen implements ActionListener{
 						}
 						
 					
-						boolean ver = c.getCompany().createFilial(textFields.get(0).getText(), new Address(textFields.get(1).getText(),
-								textFields.get(2).getText(),textFields.get(3).getText(),textFields.get(4).getText(), number));
-							
+						boolean ver = c.getCompany().createFilial(textFields.get(0).getText());
+						
 						if(ver) {
+							c.creatAddresstoFilial(textFields.get(0).getText());
+							c.getFilial(textFields.get(0).getText()).getAddress().setCountry(textFields.get(1).getText());
+							c.getFilial(textFields.get(0).getText()).getAddress().setState(textFields.get(2).getText());
+							c.getFilial(textFields.get(0).getText()).getAddress().setCity(textFields.get(3).getText());
+							c.getFilial(textFields.get(0).getText()).getAddress().setStreet(textFields.get(4).getText());
+							c.getFilial(textFields.get(0).getText()).getAddress().setNumber(number);
 							new CompanyMenu(c);
 							jf.dispose();
 							jf = null;

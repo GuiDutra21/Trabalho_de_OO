@@ -303,7 +303,7 @@ public class CompanyMenu implements ActionListener{
 			else if(e.getSource().equals(buttons.get(5 + i))) 
 			{
 				 jf.dispose();
-				 new FilialEdit();
+				 new FilialEdit(c,c.getCompany().getFilials().get(indiceFiliais).getName());
 			}
 			else if(e.getSource().equals(buttons.get(6 + i)))
 			{
