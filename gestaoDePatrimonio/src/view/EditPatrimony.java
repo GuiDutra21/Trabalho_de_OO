@@ -26,9 +26,12 @@ public class EditPatrimony implements ActionListener
 	private ControlerCompany c;
 	private String filialName;
 	private String patrimonyName;
+	public static int CADASTRAR = 0, EDITAR = 1;
+	private int armazenaOp;
 	
 	
 	public EditPatrimony(String patrimonyName,PatrimonyScreen.Tipo tipo, ControlerCompany c, String filialName) {
+		
 		this.patrimonyName = patrimonyName;
 		if(tipo == Tipo.VEHICLE)
 		{
@@ -104,7 +107,7 @@ public class EditPatrimony implements ActionListener
 			textFields.add(new JTextField(String.format("%d",c.getVehicle(filialName, patrimonyName).getProductionYear())));
 			textFields.get(5).setBounds(615,420,350,30);
 			
-			buttons.add(new JButton("Cadastrar"));
+			buttons.add(new JButton("Editar"));
 			buttons.get(0).setBounds(740, 500, 100, 30);
 			buttons.get(0).setBackground(Color.green);
 			
@@ -188,7 +191,7 @@ public class EditPatrimony implements ActionListener
 			textFields.add(new JTextField());
 			textFields.get(9).setBounds(615, 705, 350, 30);//set the position
 			
-			buttons.add(new JButton("CADASTRAR"));
+			buttons.add(new JButton("EDITAR"));
 			buttons.get(0).setBounds(680, 770, 200, 30);
 			buttons.get(0).setBackground(Color.green);
 			

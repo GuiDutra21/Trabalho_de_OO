@@ -21,11 +21,12 @@ public class SearchedPatrimonys implements ActionListener {
 	private List<JButton> buttons;
 	private JScrollPane scroll;
 	private ControlerCompany c;
+	private String searchedName;
 
 	
 	//constructor 
 	SearchedPatrimonys(ControlerCompany c, String searchedName){
-		
+		this.searchedName = searchedName;
 		this.c = c;
 		
 		searchedName = searchedName.trim().replaceAll("\\s+", " ");
@@ -293,9 +294,16 @@ public class SearchedPatrimonys implements ActionListener {
 					buttons.get(buttons.size() - 1).setBounds(850,900 + (i * squareHeight),200,30);
 					panels.get(0).add(buttons.get(buttons.size() - 1));
 			}
-			
 			panels.get(0).add(panels.get(panels.size() - 1));
+		
 		}
+		
+		for(int i = 0; i < buttons.size(); i++)
+		{
+			buttons.get(i).addActionListener(this);
+		}
+		
+		
 		
 		if(c.searchPatrimony(searchedName).size() == 0)
 		{
@@ -326,26 +334,85 @@ public class SearchedPatrimonys implements ActionListener {
 		ControlerCompany ca = new ControlerCompany("ololol");
 		ca.getCompany().createFilial("minha filial");
 		
-		List<Patrimony> b = new ArrayList<>();
+		Buildings b = null;
+		Vehicle x = null;
+		
 		for(int i = 0; i < 5; i++)
 		{	
 			if(i%2 == 0)
 			{
-				String v = String.format("casa %d",i);
-					b.add(new Buildings(v,15,4000.5,3, 1500.00));
-					ca.getCompany().getFilials().get(0).creatB(v,15,4000.5,3, 1500.00);
+					String v = String.format("casa %d",i);
+					b = new Buildings(v,15,4000.5,3, 1500.00);
+					ca.getCompany().getFilials().get(0).add(b);
+					ca.creatAddresstoBuil("minha filial", v);
+					ca.getBuildings("minha filial", v).getAddress().setCountry("");
+					ca.getBuildings("minha filial", v).getAddress().setState("");
+					ca.getBuildings("minha filial", v).getAddress().setCity("");
+					ca.getBuildings("minha filial", v).getAddress().setStreet("");
+					ca.getBuildings("minha filial", v).getAddress().setNumber(0);
+					ca.getCompany().getFilials().get(0).add(b);
 				
 			}else {
 				String s = String.format("Carro %d",i);
-				b.add(new Vehicle(s,15, 20000,"Ferrari 480 Pista","Ferrari",2022));
-				ca.getCompany().getFilials().get(0).creatV(s,15, 20000,"Ferrari 480 Pista","Ferrari",2022);
+				x = new Vehicle(s,15, 20000,"Ferrari 480 Pista","Ferrari",2022);
+				ca.getCompany().getFilials().get(0).add(x);
 			}
 		}
 		SearchedPatrimonys g = new SearchedPatrimonys(ca,"   ca   ");
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		int indiceLabels = 5;
+		int indiceLabelsPName = 2;
+		if(buttons.size() > 0)
+		{
+			for(int i = 0 ; i < buttons.size(); i++)
+			{
+				if(i % 2 == 0)
+				{
+					if(c.isVehicle(labels.get(indiceLabels).getText(), labels.get(indiceLabelsPName).getText()))
+					{
+						if(e.getSource().equals(buttons.get(i)))
+						{
+							jf.dispose();
+							
+							new EditPatrimony(labels.get(indiceLabelsPName).getText(), PatrimonyScreen.Tipo.VEHICLE,c,
+									labels.get(indiceLabels).getText());
+							
+						}
+						
+					}
+					
+					else
+					{
+						if(e.getSource().equals(buttons.get(i)))
+						{
+							new EditPatrimony(labels.get(indiceLabelsPName).getText(), PatrimonyScreen.Tipo.BUILDINGS,c,
+									labels.get(indiceLabels).getText());
+						}
+						
+					}
+					
+					
+				}
+				else
+				{
+					if(e.getSource().equals(buttons.get(i)))
+					{
+						c.getFilial(labels.get(indiceLabels).getText()).remove(labels.get(indiceLabelsPName).getText());
+						jf.dispose();
+						new SearchedPatrimonys(c,searchedName);
+						
+					}
+					
+					indiceLabelsPName += 14;
+					indiceLabels += 14;
+					
+					
+				}
+				
+			}
+		}
 		
 	}		
 }
