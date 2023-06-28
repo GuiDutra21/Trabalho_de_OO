@@ -174,9 +174,8 @@ public class FilialMenu implements ActionListener {
 		buttons.get(1).setBounds(1200, 100, 150, 30);
 		panels.get(0).add(buttons.get(1));
 		
-		filialValue = 15000.500;
 		//the JLabel of 'Patrimônio líquido'
-		labels.add(new JLabel("R$ " + Double.toString(filialValue)));
+		labels.add(new JLabel("R$ " + Double.toString(c.getFilial(name).getValue())));
 		labels.get(4).setBounds(x - (labels.get(4).getText().length()*4), 170, labels.get(4).getText().length() * 20, 50);
 		labels.get(4).setFont(new Font("Times New Roman", Font.BOLD, 22));
 		panels.get(0).add(labels.get(4));
@@ -245,7 +244,7 @@ public class FilialMenu implements ActionListener {
 			
 				panels.add(new JPanel());
 				
-				if(c.getPatrimonys(name).get(i) instanceof Buildings)
+				if(c.isVehicle(name,c.getPatrimonys(name).get(i).getName()) == false)
 				{						
 					panels.get(panels.size() - 1).setBounds(200, 440 + (i * squareHeight), 1100, 580);
 					panels.get(panels.size() - 1).setBackground((new  Color(0, 180, 0)));

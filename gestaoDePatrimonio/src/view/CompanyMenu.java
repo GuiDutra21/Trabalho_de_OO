@@ -273,8 +273,12 @@ public class CompanyMenu implements ActionListener{
 			
 			jf.dispose();
 			c.editAddress(c, ControlerCompany.IS_COMPANY);
-
-				
+		}
+		
+		if(e.getSource().equals(buttons.get(2)))
+		{	
+			jf.dispose();
+			new SearchedPatrimonys(c, search.getText());		
 		}
 		
 		if(e.getSource().equals(button1)) {
@@ -286,7 +290,6 @@ public class CompanyMenu implements ActionListener{
 		if(buttons.size() >=4  && e.getSource().equals( buttons.get(3))) {
 			jf.dispose();
 			new FilialScreen(c);
-			jf = null;
 		}
 		
 		int indiceFiliais = -1;
