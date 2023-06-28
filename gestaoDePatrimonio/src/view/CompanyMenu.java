@@ -35,6 +35,8 @@ public class CompanyMenu implements ActionListener{
 	public CompanyMenu(ControlerCompany c)
 	{
 		this.c = c;
+		
+		//create the JFrame
 		jf = new JFrame();
 		panels = new ArrayList<JPanel>();
 		buttons = new ArrayList<JButton>();
@@ -42,8 +44,6 @@ public class CompanyMenu implements ActionListener{
 		lists = new ArrayList<JList>();
 		scrolls = new ArrayList<JScrollPane>();
 		
-		//create the JFrame
-		JFrame jf = new JFrame();
 		jf.setSize(1500,1500);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//to stop the execution when click on the red X
 		
@@ -93,19 +93,19 @@ public class CompanyMenu implements ActionListener{
 		fontMetrics = labels.get(2).getFontMetrics(font);//to catch the Dimensions occupied by the JLabel
 		labelWidth = fontMetrics.stringWidth(labels.get(2).getText());//to catch the width occupied by the JLabel
 		
-		if(labelWidth == 15 )
+		if(labelWidth >= 901)
 		{
-			labelWidth = 185;
+			labelWidth = 901;
 		}
 		//labelWidth = c.getCompanyAddress().length();
-		System.out.println(c.getCompanyAddress());
-		System.out.println(labelWidth);
-		System.out.println(c.getCompanyAddress().length());
-		labels.get(2).setBounds(screenWidth/2 - labelWidth - c.getCompanyAddress().length()*3, 100, labelWidth - (c.getCompanyAddress().length() - 5)*3,30);
+//		System.out.println(c.getCompanyAddress());
+//		System.out.println(labelWidth);
+//		System.out.println(c.getCompanyAddress().length());
+		labels.get(2).setBounds(screenWidth/2 - labelWidth/2, 100, labelWidth - 60,30);
 		
 		//the JLabel 'Endereço'
 		labels.add(new JLabel("Endereço :"));
-		labels.get(3).setBounds(screenWidth/2 - labelWidth/2 - 200, 100, 200,30);
+		labels.get(3).setBounds(screenWidth/2 - labelWidth/2 - 200, 100, 200,40);
 		labels.get(3).setFont(new Font("Times New Roman", Font.BOLD, 25));
 		panels.get(0).add(labels.get(3));
 
@@ -195,7 +195,7 @@ public class CompanyMenu implements ActionListener{
 				labels.add(new JLabel("<html><u>Filial :</u></html>"));
 				labelsSize++;
 				labels.get(labelsSize).setFont(new Font("Times New Roman", Font.BOLD, 28));
-				labels.get(labelsSize).setBounds(x - labels.get(labelsSize - 1).getText().length()*4 - 160, 860 + (j * squareHeight), 300, 40);
+				labels.get(labelsSize).setBounds(400, 860 + (j * squareHeight), 300, 40);
 				panels.get(0).add(labels.get(labelsSize));
 				
 				labels.add(new JLabel("<html><u>Patrimônios dessa Filial:</u></html>"));
@@ -280,13 +280,15 @@ public class CompanyMenu implements ActionListener{
 					} else {
 						c.setCompanyName(novoNome);
 						labels.get(0).setText(novoNome);
+						jf.dispose();
+						new CompanyMenu(c);
 						verifica = true;
 					}
 				} else {
+					jf.dispose();
+					new CompanyMenu(c);
 					verifica = true;
 				}
-			
-				
 			}
 		}
 		
@@ -336,9 +338,6 @@ public class CompanyMenu implements ActionListener{
 				new CompanyMenu(c);
 			}
 		
-		}
-		
-		
-		
+		}		
 	}
 }

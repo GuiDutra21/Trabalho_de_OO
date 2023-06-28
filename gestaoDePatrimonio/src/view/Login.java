@@ -190,9 +190,6 @@ public class Login implements ActionListener{
 				
 				jf.dispose();
 				c.companyScreean();
-				jf = null;
-				
-			
 			}
 		}
 	}

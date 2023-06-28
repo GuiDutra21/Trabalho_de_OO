@@ -22,6 +22,7 @@ public class SearchedPatrimonys implements ActionListener {
 	private JScrollPane scroll;
 	private ControlerCompany c;
 	private String searchedName;
+	private JButton back;
 
 	
 	//constructor 
@@ -44,6 +45,7 @@ public class SearchedPatrimonys implements ActionListener {
 		
 		//To put in full Screen when we run the application 
 		jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		
 		
 		//Create the panels
 		panels = new ArrayList<>();
@@ -88,6 +90,11 @@ public class SearchedPatrimonys implements ActionListener {
 			labels.get(1).setBackground(new Color(220, 220, 220));
 		}
 		panels.get(0).add(labels.get(1));
+		
+		back = new JButton("Voltar");
+		back.setBounds(50, 150, 200, 40);
+		panels.get(0).add(back);
+		back.addActionListener(this);
 		
 		//the height of the greens Squares
 		int squareHeight = 900;
@@ -362,6 +369,11 @@ public class SearchedPatrimonys implements ActionListener {
 //	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getSource().equals(back))
+		{
+			jf.dispose();
+			new CompanyMenu(c);
+		}
 		int indiceLabels = 5;
 		int indiceLabelsPName = 2;
 		if(buttons.size() > 0)
@@ -406,9 +418,7 @@ public class SearchedPatrimonys implements ActionListener {
 					}
 					
 					indiceLabelsPName += 14;
-					indiceLabels += 14;
-					
-					
+					indiceLabels += 14;	
 				}
 				
 			}
