@@ -49,26 +49,34 @@ public class CompanyMenu implements ActionListener{
 		
 		//To put in full Screen when we run the application 
 		jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		int x = 10000;
+		//to catch the screenSize
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int screenWidth = screenSize.width;
+        
+		FontMetrics fontMetrics;
+		int labelWidth;
+		Font font = new Font("Times New Roman", Font.BOLD, 30);
 		
 		//create the first label where all others things will be set
 		panels.add(new JPanel());
 		panels.get(0).setLayout(null);
 		panels.get(0).setBackground(new Color(100, 145, 255));
 		
-		int x = jf.getWidth()/2;
-		
 		//the name of the Company 
 		labels.add(new JLabel(c.getCompanyName()));
 		labels.get(0).setFont(new Font("Times New Roman", Font.BOLD, 25));
 		labels.get(0).setOpaque(true);
 		labels.get(0).setBackground(new Color(220, 220, 220));
-		labels.get(0).setBounds(x - (labels.get(0).getText().length()*4), 23,textWidth(labels.get(0)),30);
+		fontMetrics = labels.get(0).getFontMetrics(font);//to catch the Dimensions occupied by the JLabel
+		labelWidth = fontMetrics.stringWidth(labels.get(0).getText());//to catch the width occupied by the JLabel
+		labels.get(0).setBounds(screenWidth/2 - labelWidth/2, 23,labelWidth,30);
 		
 		panels.get(0).add(labels.get(0));
 		
 		//the JLabel 'Company' 
 		labels.add(new JLabel("Compania :"));
-		labels.get(1).setBounds(x - (labels.get(0).getText().length()*4) - 240, 20, 250, 30);
+		labels.get(1).setBounds(screenWidth/2 - labelWidth/2 - 230, 20, 250, 30);
 		labels.get(1).setFont(new Font("Times New Roman", Font.BOLD, 30));
 		panels.get(0).add(labels.get(1));
 		
@@ -82,11 +90,22 @@ public class CompanyMenu implements ActionListener{
 		labels.get(2).setOpaque(true);
 		labels.get(2).setBackground(new Color(220, 220, 220));
 		labels.get(2).setFont(new Font("Times New Roman", Font.BOLD,20));
-		labels.get(2).setBounds(x - (labels.get(2).getText().length()*4), 100,textWidth(labels.get(2)) + 10,30);
+		fontMetrics = labels.get(2).getFontMetrics(font);//to catch the Dimensions occupied by the JLabel
+		labelWidth = fontMetrics.stringWidth(labels.get(2).getText());//to catch the width occupied by the JLabel
+		
+		if(labelWidth == 15 )
+		{
+			labelWidth = 185;
+		}
+		//labelWidth = c.getCompanyAddress().length();
+		System.out.println(c.getCompanyAddress());
+		System.out.println(labelWidth);
+		System.out.println(c.getCompanyAddress().length());
+		labels.get(2).setBounds(screenWidth/2 - labelWidth - c.getCompanyAddress().length()*3, 100, labelWidth - (c.getCompanyAddress().length() - 5)*3,30);
 		
 		//the JLabel 'Endereço'
 		labels.add(new JLabel("Endereço :"));
-		labels.get(3).setBounds(x - (labels.get(2).getText().length()*4) - 190, 100, 200,30);
+		labels.get(3).setBounds(screenWidth/2 - labelWidth/2 - 200, 100, 200,30);
 		labels.get(3).setFont(new Font("Times New Roman", Font.BOLD, 25));
 		panels.get(0).add(labels.get(3));
 
@@ -103,13 +122,15 @@ public class CompanyMenu implements ActionListener{
 		labels.get(4).setFont(new Font("Times New Roman", Font.BOLD, 22));
 		labels.get(4).setOpaque(true);
 		labels.get(4).setBackground(new Color(220, 220, 220));
-		labels.get(4).setBounds(x - (labels.get(4).getText().length()*4), 170, textWidth(labels.get(4)), 40);
+		fontMetrics = labels.get(4).getFontMetrics(font);//to catch the Dimensions occupied by the JLabel
+		labelWidth = fontMetrics.stringWidth(labels.get(4).getText());//to catch the width occupied by the JLabel
+		labels.get(4).setBounds(screenWidth/2 - labelWidth/2, 170, labelWidth, 40);
 		panels.get(0).add(labels.get(4));
 		
 		//the JLabel 'Patrimônio líquido da Filial' 
 		labels.add(new JLabel("Patrimônio líquido da Compania :"));
 		labels.get(5).setFont(new Font("Times New Roman", Font.BOLD, 22));
-		labels.get(5).setBounds(x - (labels.get(4).getText().length()*4) - 420, 170, 350, 50);
+		labels.get(5).setBounds(screenWidth/2 - labelWidth/2 - 400, 170, 350, 50);
 		panels.get(0).add(labels.get(5));
 		
 		
@@ -137,7 +158,7 @@ public class CompanyMenu implements ActionListener{
 		
 		//The JLabel 'Filiais Cadastradas :'
 		labels.add( new JLabel("<html><u>Filiais Cadastradas :</u><html>"));
-		labels.get(7).setBounds(635, 600, 550, 50);
+		labels.get(7).setBounds(620, 600, 550, 50);
 		labels.get(7).setFont(new Font("Times New Roman", Font.BOLD, 30));
 		panels.get(0).add(labels.get(7));
 		if(c.getCompany().getFilials().size() != 0)
@@ -149,7 +170,7 @@ public class CompanyMenu implements ActionListener{
 			
 			//Create the Button to add a Filial
 			buttons.add(new JButton("Adicionar Filial"));
-			buttons.get(3).setBounds(665,725,200,30);
+			buttons.get(3).setBounds(650,725,200,30);
 			buttons.get(3).setFont(new Font("Times New Roman", Font.BOLD, 17));
 			panels.get(0).add(buttons.get(3));			 
 			
@@ -224,8 +245,8 @@ public class CompanyMenu implements ActionListener{
 		}
 		else
 		{
-			labels.add(new JLabel("Nenhuma filial cadastrada até o momento!"));
-			labels.get(8).setBounds(550, 660, 450,50);
+			labels.add(new JLabel("Nenhuma filial cadastrada até o momento! :( "));
+			labels.get(8).setBounds(550, 660, 470,50);
 			labels.get(8).setOpaque(true);
 			labels.get(8).setBackground(Color.RED);
 			labels.get(8).setFont(new Font("Times New Roman",Font.BOLD, 25));
