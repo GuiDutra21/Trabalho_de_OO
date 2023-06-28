@@ -217,11 +217,8 @@ public class FilialScreen implements ActionListener{
 				
 				
 				
-			}
-			}
-			
-		
-		
+				}
+			}	
 	}
 	
 }
