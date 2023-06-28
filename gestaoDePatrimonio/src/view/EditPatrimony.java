@@ -698,6 +698,7 @@ public class EditPatrimony implements ActionListener
 								c.getBuildings(filialName, name).setValue(value);
 								c.getBuildings(filialName, name).setAmount(qtd);
 								c.getBuildings(filialName, name).setFloorsQtd(andares);
+								c.getBuildings(filialName, name).setArea(area);
 								c.creatAddresstoBuil(filialName, name);
 								c.getBuildings(filialName, name).getAddress().setCountry(textFields.get(5).getText());
 								c.getBuildings(filialName, name).getAddress().setState(textFields.get(6).getText());
@@ -926,6 +927,7 @@ public class EditPatrimony implements ActionListener
 								c.getBuildings(filialName, name).setValue(value);
 								c.getBuildings(filialName, name).setAmount(qtd);
 								c.getBuildings(filialName, name).setFloorsQtd(andares);
+								c.getBuildings(filialName, name).setArea(area);
 								c.creatAddresstoBuil(filialName, name);
 								c.getBuildings(filialName, name).getAddress().setCountry(textFields.get(5).getText());
 								c.getBuildings(filialName, name).getAddress().setState(textFields.get(6).getText());
