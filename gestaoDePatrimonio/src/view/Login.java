@@ -177,11 +177,15 @@ public class Login implements ActionListener{
 							}
 							
 						}catch (NumberFormatException m) {
-							if(v.isEmpty()) {
+							if(v == null)
+							{
+								verifica = true;
+							}
+							else if(v.isEmpty())
+							{
 								verifica = true;
 							}
 						}
-			
 					}
 				}	
 				
