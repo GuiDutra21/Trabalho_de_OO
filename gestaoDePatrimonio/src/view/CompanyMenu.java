@@ -13,7 +13,7 @@ import java.util.List;
  * Classe que representa a tela da Compania e herda da Classe ActionListener.
  * @author Guilherme Silva Dutra and Julio Roberto
  * @since 2023
- * @Version 1.1
+ * @version 1.1
  */
 public class CompanyMenu implements ActionListener{
 	
