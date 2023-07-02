@@ -16,19 +16,15 @@ import view.InsertAddress;
 public class ControlerCompany {
 	private Company company;
 	private String companyName;
-	private List<String> filialsName;
 	public static int IS_COMPANY = 0, IS_FILIAL = 1;
 	
 	/**
 	 * Construtor que instancia uma classe Company com o nome.
-	 * além de instanciar o array filialName
 	 * @param nome
 	 */
 	public ControlerCompany(String name) {
 		this.company = new Company(name);
 		this.companyName = name;
-		this.filialsName = new ArrayList<>();
-
 	}
 	
 	public void setCompany(Company company) {

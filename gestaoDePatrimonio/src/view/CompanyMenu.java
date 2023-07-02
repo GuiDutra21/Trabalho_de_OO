@@ -9,6 +9,12 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que representa a tela da Compania e herda da Classe ActionListener.
+ * @author Guilherme Silva Dutra and Julio Roberto
+ * @since 2023
+ * @Version 1.1
+ */
 public class CompanyMenu implements ActionListener{
 	
 	private List<JLabel> labels;
@@ -21,6 +27,11 @@ public class CompanyMenu implements ActionListener{
 	private ControlerCompany c;
 	private JTextField search;
 	
+	/**
+	 * Método que retorna o tamanho necessário para ajustar a cor por trás da label desejada 
+	 * @param label label que desejamos pintar por trás
+	 * @return compriemento da pintura
+	 */    
 	public int textWidth(JLabel label)
 	{
 		FontMetrics fontMetrics = label.getFontMetrics(label.getFont());//catch the Metrics with the Font
@@ -30,6 +41,10 @@ public class CompanyMenu implements ActionListener{
 		return labelWidth;
 	}
 	
+	/**
+	 * Consturtor que gera a tela
+	 * @param c Classe Controler
+	 */
 	public CompanyMenu(ControlerCompany c)
 	{
 		this.c = c;
@@ -267,7 +282,10 @@ public class CompanyMenu implements ActionListener{
 				buttons.get(i).addActionListener(this);
 			}
 	}
-
+	/**
+	 * Sobrescrista do método actionPerformed da Interface ActionListener que trata os eventos dos JButtons gerados na tela
+	 * @param e evento
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(buttons.get(0))) {

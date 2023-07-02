@@ -17,6 +17,12 @@ import java.util.Locale;
 import controler.ControlerCompany;
 import view.PatrimonyScreen.Tipo;
 
+/**
+ * Classe responsável por gerar a tela que irá editar os patrimony
+ * @author Guilherme Silva Dutra and Julio Roberto
+ * @since 2023
+ * @version 1.1
+ */
 public class EditPatrimony implements ActionListener
 {
 	private JFrame frame;
@@ -31,7 +37,13 @@ public class EditPatrimony implements ActionListener
 	public static int CADASTRAR = 0, EDITAR = 1;
 	private int armazenaOp;
 	
-	
+	/**
+	 * Construtor que gera a tela responsável  por editar os patrimony
+	 * @param patrimonyName Nome do patrimony que deseja editar
+	 * @param tipo Referência da tela anterior
+	 * @param c Controler
+	 * @param filialName Nome da Filial onde está presente o Patrimony
+	 */
 	public EditPatrimony(String patrimonyName,PatrimonyScreen.Tipo tipo, ControlerCompany c,String filialName) {
 		this.armazenaOp = CADASTRAR;
 		this.patrimonyName = patrimonyName;
@@ -260,6 +272,15 @@ public class EditPatrimony implements ActionListener
 		//////////////////////////////////////////////////////////////////
 	}
 	
+	/**
+	 * Construtor que gera a tela responsável  por editar os patrimony
+	 * @param patrimonyName Nome do patrimony que deseja editar
+	 * @param tipo Referência da tela anterior
+	 * @param c Controler
+	 * @param op Referência da tela que será gerada posteriormente
+	 * @param filialName Nome da Filial onde o Patrimony está presente
+	 * @param searchedName Nome utilizado na busca
+	 */
 	public EditPatrimony(String patrimonyName,PatrimonyScreen.Tipo tipo, ControlerCompany c,int op, 
 			String filialName, String searchedName) 
 	{
@@ -488,7 +509,9 @@ public class EditPatrimony implements ActionListener
 		//////////////////////////////////////////////////////////////////
 	}
 
-
+	/**
+	 * Sobreescrita do Método actionPerformed da Interface ActionListener reposável por tratar os eventos dos JButtons
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{

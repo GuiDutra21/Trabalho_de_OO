@@ -7,7 +7,6 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import controler.ControlerCompany;
-import model.Address;
 
 import java.awt.Font;
 
@@ -26,6 +25,17 @@ public class Login implements ActionListener{
 	private JButton ready;
 	private ControlerCompany c;
 	
+	/**
+	 * Método que retorna a Controler
+	 * @return Controler
+	 */
+	public ControlerCompany getC() {
+		return c;
+	}
+	
+	/**
+	 * Construtor que gera a tela de Login
+	 */
 	public Login()
 	{
 		jf = new JFrame();
@@ -212,9 +222,6 @@ public class Login implements ActionListener{
 		
 
 			
-	public ControlerCompany getC() {
-		return c;
-	}
 	
 	
 	

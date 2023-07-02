@@ -15,6 +15,12 @@ import javax.swing.JTextField;
 import controler.ControlerCompany;
 import model.Address;
 
+/**
+ * 
+ * @author Guillherme Silva Dutra and Julio Roberto
+ * @since 2023
+ * 
+ */
 public class FilialEdit implements ActionListener{
 		
 		private JFrame jf;
