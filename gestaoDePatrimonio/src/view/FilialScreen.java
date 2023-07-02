@@ -15,6 +15,12 @@ import javax.swing.JTextField;
 import controler.ControlerCompany;
 import model.Address;
 
+/**
+ * Classe que gera a tela de cadasfro de filial
+ * @author Julio Roberto e Guilherme Silva
+ * @since 2023
+ * @version 1.1
+ */
 public class FilialScreen implements ActionListener{
 	
 	private JFrame jf;
@@ -22,10 +28,11 @@ public class FilialScreen implements ActionListener{
 	private List<JLabel> labels;
 	private List<JTextField> textFields;
 	private JButton button;
-
 	
-	
-	
+	/**
+	 * Construtor que gera a tela de cadastro da Filial
+	 * @param c Controler
+	 */
 	public FilialScreen(ControlerCompany c)
 	{
 		this.c = c;
@@ -145,7 +152,10 @@ public class FilialScreen implements ActionListener{
 		return textFields;
 	}
 	
-	
+	/**
+	 * Sobreescrita do Método actionPerformed da Interface ActionListener reposável por tratar os eventos dos JButtons
+	 * @param e evento
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(button)) 

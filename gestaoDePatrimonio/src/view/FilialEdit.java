@@ -30,7 +30,11 @@ public class FilialEdit implements ActionListener{
 		private JButton button;	
 		private String filialName;
 		
-		
+		/**
+		 * Constutor que gera a tela de edição
+		 * @param c Controler 
+		 * @param filialName Nome da Filial
+		 */
 		public FilialEdit(ControlerCompany c, String filialName)
 		{
 			this.c = c;
@@ -148,7 +152,10 @@ public class FilialEdit implements ActionListener{
 			return textFields;
 		}
 		
-		
+		/**
+		 * Sobreescrita do Método actionPerformed da Interface ActionListener reposável por tratar os eventos dos JButtons
+		 * @param e evento
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			

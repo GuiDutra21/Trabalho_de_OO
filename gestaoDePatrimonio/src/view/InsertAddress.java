@@ -30,7 +30,11 @@ public class InsertAddress implements ActionListener {
 	private int t;
 	private String filialName;
 	
-	
+	/**
+	 * Construtor que gera a tela de cadastro de endereço
+	 * @param c Contoler 
+	 * @param t referência para qual tela gerar depois
+	 */
 	public InsertAddress(ControlerCompany c, int t)
 	{
 		this.t = t;
@@ -140,6 +144,12 @@ public class InsertAddress implements ActionListener {
 		jf.setVisible(true);
 	}
 	
+	/**
+	 * Construtor que gera a tela de cadastro de endereço
+	 * @param c Contoler 
+	 * @param t referência para qual tela gerar depois
+	 * @filialName Filial que tera o endereço cadastrado
+	 */
 	public InsertAddress(ControlerCompany c, int t, String filialName)
 	{
 		this.filialName = filialName;
@@ -253,7 +263,7 @@ public class InsertAddress implements ActionListener {
 	/**
 	 * Metodo que trata os eventos dos JButton gerados
 	 * Sobrescreve actionPerformed da interface ActionListener
-	 * 
+	 * @param e evento
 	 */
 	
 	@Override
@@ -316,10 +326,9 @@ public class InsertAddress implements ActionListener {
 				}
 				c.getCompany().getAddress().setNumber(number);
 				
+				jf.dispose();
 				new CompanyMenu(c);
 				
-				jf.dispose();
-				jf = null;
 			} else if(t == ControlerCompany.IS_FILIAL) {
 				if(textFields.get(0).getText().isEmpty()) {
 					
@@ -369,21 +378,14 @@ public class InsertAddress implements ActionListener {
 									 }
 								 	}
 							}
-						
 				}
 				
 				c.getFilial(filialName).getAddress().setNumber(number);
 				
+				jf.dispose();
 				new FilialMenu(c, filialName);
 				
-				jf.dispose();
-				jf = null;
-			}
-			
-			
-			
-		}
-		
+			}	
+		}	
 	}
-
 }

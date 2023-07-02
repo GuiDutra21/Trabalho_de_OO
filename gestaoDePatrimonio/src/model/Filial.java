@@ -7,7 +7,6 @@ import java.util.ArrayList;
  * @author Julio Roberto e Guilherme Silva
  * @since 2023
  * @version 1.1
- *
  */
 
 public class Filial extends Enterprises {
@@ -18,10 +17,19 @@ public class Filial extends Enterprises {
 	
 	//Constructor
 	
+	/**
+	 * Contrutor que gera um Filila com nome apenas
+	 * @param name nome da Filial
+	 */
 	public Filial(String name) {
 		this(name,null);
 	}
 	
+	/**
+	 * Construtor que gera uma Filial com nome e Endereço
+	 * @param name Nome da Filial
+	 * @param adress Enfereço da Filial
+	 */
 	public Filial(String name, Address adress) {
 		setName(name);
 		setAddress(adress);
@@ -38,6 +46,10 @@ public class Filial extends Enterprises {
 		return patrimony;
 	}
 	
+	/**
+	 * Métod que calcula o valor da filial retorna esse valor
+	 * @return
+	 */
 	public double getValue() {
 		double value = 0;
 		
@@ -50,6 +62,18 @@ public class Filial extends Enterprises {
 	//Methods
 	
 	//Into a Filial create a Patrimony with all arguments
+	
+	/**
+	 * Métod que cria um Veículo nessa Filial com todos os argumentos
+	 * Retorna TRUE caso seja bem sucedido, caso contrário retorna FALSE 
+	 * @param name Nome do patrimonio
+	 * @param amount A quantida do patrimonio 
+	 * @param value Valor do patrimonio 
+	 * @param model Modelo do partimonio 
+	 * @param brand marca do Patrimonio 
+	 * @param productionYear ano de produção do patrimonio 
+	 * @return True ou False
+	 */
 	public boolean creatV(String name,int amount, double value, String model, String brand, int productionYear) {
 		boolean verifica = false;
 		if(getPatrimony().size() == 0 && (name.isEmpty() == false)) {
@@ -79,7 +103,13 @@ public class Filial extends Enterprises {
 	
 		
 	}
-	
+	/**
+	 * Método que cria um veículo com apenas name, value dentro desse Filial.
+	 * Retorna TRUE caso seja bem sucedido, caso contrário retorna FALSE.
+	 * @param name nome do veículo
+	 * @param value velor do veículo
+	 * @return True ou False
+	 */
 	public boolean creatV(String name, double value) {
 		boolean verifica = false;
 		
@@ -107,6 +137,14 @@ public class Filial extends Enterprises {
 	
 	}
 	
+	/**
+	 * Método que cria um veículo com apenas  name, amount, value dentro desse Filial.
+	 * Retorna TRUE caso seja bem sucedido, caso contrário retorna FALSE.
+	 * @param name nome do veículo
+	 * @param amoount a quantidade do veículo
+	 * @param value velor do veículo
+	 * @return True ou False
+	 */
 	public boolean creatV(String name,int amount, double value) {
 		boolean verifica = false;
 		
@@ -133,7 +171,13 @@ public class Filial extends Enterprises {
 		
 	}
 	
-	//Into a Filial create a Patrimony only with name 
+	//Into a Filial create a Patrimony only with name
+	/**
+	 * Método que cria um veículo com apenas o Nome nessa Filial.
+	 * Retorna TRUE caso seja bem sucedido, caso contrário retorna FALSE.
+	 * @param name nome do veículo
+	 * @return True ou False
+	 */
 	public boolean createV(String name) {
 		boolean verifica = false;
 		
@@ -162,6 +206,16 @@ public class Filial extends Enterprises {
 	
 	}
 	
+	/**
+	 * Método que cria uma propriedade com name, amount, value, floorsQtd, area
+	 * Retorna TRUE caso seja bem sucedido, caso contrário retorna FALSE.
+	 * @param name nome da propriedadae
+	 * @param amount quantidade da propriedade
+	 * @param value velor da propriedade
+	 * @param floorsQtd quanitdade de andares da propriedade
+	 * @param area metros quadreados da propriedade
+	 * @return True ou False
+	 */
 	public boolean creatB(String name, int amount, double value, int floorsQTD, double area) {
 		boolean verifica = false;
 		
@@ -215,7 +269,13 @@ public class Filial extends Enterprises {
 		
 	}
 
-	
+	/**
+	 * Método que cria uma propriedade com name e value
+	 * Retorna TRUE caso seja bem sucedido, caso contrário retorna FALSE.
+	 * @param name nome da propriedadae
+	 * @param value velor da propriedade
+	 * @return True ou False
+	 */
 	public boolean creatB(String name, double value) {
 		boolean verifica = false;
 		
@@ -244,7 +304,12 @@ public class Filial extends Enterprises {
 	}
 	
 
-	
+	/**
+	 * Método que cria uma propriedade com apenas o name
+	 * Retorna TRUE caso seja bem sucedido, caso contrário retorna FALSE.
+	 * @param name nome da propriedadae
+	 * @return True ou False
+	 */
 	public boolean createB(String name) {
 		boolean verifica = false;
 		
@@ -272,6 +337,12 @@ public class Filial extends Enterprises {
 	}
 	
 	//Into a Filial add a Patrimony
+	/**
+	 * Método que adiciona um patrimonio nessa filial.
+	 * Retorna TRUE caso seja bem sucedido, caso contrário retorna FALSE.
+	 * @param patrimony o próprio patrimonio 
+	 * @return TRUE ou FALSE
+	 */
 	public boolean add(Patrimony patrimony) {
 		boolean verifica = false;
 		if(getPatrimony().size()!= 0)
@@ -298,7 +369,13 @@ public class Filial extends Enterprises {
 		return verifica;
 	}
 	
-	//Into a Filial edit the name of a Patrimony
+	/**
+	 * Métood que edita o nome do patrimonio
+	 * Retorna TRUE caso seja bem sucedido, caso contrário retorna FALSE.
+	 * @param oldName nome antigo
+	 * @param newName nome novo
+	 * @return TRUE ou FALSE
+	 */
 	public boolean editPatrimony(String oldName, String newName) {
 		boolean verifica = false;
 		for(int i = 0; i < getPatrimony().size(); i++) {
@@ -320,19 +397,27 @@ public class Filial extends Enterprises {
 		return verifica;
 	}
 	
-	//Into a Filial edit the value of a Patrimony
-	public void editPatrimony(String oldName, double newValue) {
+	/**
+	 * método que altera o valor de um patrimonio
+	 * @param name nome do patrimonio
+	 * @param newValue novo valor
+	 */
+	public void editPatrimony(String name, double newValue) {
 		
-		oldName = oldName.toLowerCase();
+		name = name.toLowerCase();
 		
 		for (int i = 0; i < getPatrimony().size(); i++) {
-			if(getPatrimony().get(i).getName().toLowerCase().equals(oldName)){
+			if(getPatrimony().get(i).getName().toLowerCase().equals(name)){
 				getPatrimony().get(i).edit(newValue);
 			}
 		}
 	}
 	
-	//Into a Filial edit the amount of a Patrimony
+	/**
+	 * método que altera a quantidade de um determinado patrimonio
+	 * @param patName noem do patrimonio
+	 * @param amount nova quantidade desejada
+	 */
 	public void editPatrimony(String patName, int amount) {
 		
 		patName = patName.toLowerCase();
@@ -343,7 +428,12 @@ public class Filial extends Enterprises {
 		}
 	}
 
-	//Into a Filial remove a Patrimony
+	/**
+	 * Método que remove o patrimonio baseado no nome dele.
+	 * Retorna TRUE caso seja bem sucedido, caso contrário retorna FALSE.
+	 * @param patName Nome do patrimonio que deseja ser removido
+	 * @return TRUE ou FALSE
+	 */
 	public boolean remove(String patName) {
 		patName = patName.toLowerCase();
 		boolean verifica = false;
@@ -358,6 +448,12 @@ public class Filial extends Enterprises {
 		return verifica;
 	}
 	
+	/**
+	 * Método que remove o patrimonio passando já o patrimonio.
+	 * Retorna TRUE caso seja bem sucedido, caso contrário retorna FALSE.
+	 * @param p o patrimonio que deseja ser removido
+	 * @return TRUE ou FALSE
+	 */
 	public boolean remove(Patrimony p) {
 		boolean verifica = false;
 		for(int i = 0; i < getPatrimony().size(); i++) {

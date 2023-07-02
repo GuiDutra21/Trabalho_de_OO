@@ -10,6 +10,12 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Classe responsável por gerar a tela de filial
+ * @author Guilherme Silva Dutra and Julio Roberto
+ * @since 2023
+ * @ersion 1.1
+ */
 public class FilialMenu implements ActionListener {
 	private ControlerCompany c;
 	private double filialValue;
@@ -21,7 +27,12 @@ public class FilialMenu implements ActionListener {
 	private JButton voltar;
 	private JButton add;
 	private JButton add1;	
-
+	
+	/**
+	 * Construtor que gera a tela de Filial
+	 * @param c Controler
+	 * @param name Nome da Filial
+	 */
 	public FilialMenu(ControlerCompany c,String name){
 		
 		super();
@@ -321,12 +332,6 @@ public class FilialMenu implements ActionListener {
 				
 				panels.get(0).add(panels.get(panels.size() - 1));
 			}
-			
-//			for(int i = 0; i < buttons.size(); i++)
-//			{
-//				buttons.get(i).addActionListener(this);
-//			}
-			
 			panels.get(0).add(panels.get(1));//add the panel gray
 		} 
 		else 
@@ -353,15 +358,14 @@ public class FilialMenu implements ActionListener {
 		JScrollPane scrollPane = new JScrollPane(panels.get(0));
 		jf.setContentPane(scrollPane);	
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		jf.setVisible(true);
-		
-//		for(int i = 0; i < buttons.size(); i++) {
-//			buttons.get(i).addActionListener(this);
-//		}
-		
+		jf.setVisible(true);		
 	}
 	
-
+	/**
+	 * Metodo que trata os eventos dos JButton gerados
+	 * Sobrescreve actionPerformed da interface ActionListener
+	 * @param e evento
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
@@ -453,8 +457,6 @@ public class FilialMenu implements ActionListener {
 					{
 						if(c.isVehicle(name, labels.get(labelsindice).getText()))
 						{
-							System.out.println(i);
-							System.out.println(labelsindice);
 							jf.dispose();
 							new EditPatrimony(labels.get(labelsindice).getText(),PatrimonyScreen.Tipo.VEHICLE,c,name);
 						}

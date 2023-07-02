@@ -30,7 +30,12 @@ public class PatrimonyScreen implements ActionListener{
 	private ControlerCompany c;
 	private String filialName;
 	
-	
+	/**
+	 * Construtor que gera a tela de cadastro de um patrimônio
+	 * @param tipo referencia do tipo de patrimonio
+	 * @param c Controler
+	 * @param filialName Filial onde serpa criado o patrimonio
+	 */
 	public PatrimonyScreen(Tipo tipo, ControlerCompany c, String filialName) {
 		
 		if(tipo == Tipo.VEHICLE)
@@ -261,7 +266,7 @@ public class PatrimonyScreen implements ActionListener{
 	/**
 	 * Metodo que trata os eventos dos JButton gerados
 	 * Sobrescreve actionPerformed da interface ActionListener
-	 * 
+	 * @param e evento
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) 

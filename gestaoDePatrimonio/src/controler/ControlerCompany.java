@@ -86,10 +86,10 @@ public class ControlerCompany {
 		new InsertAddress(c,t);
 	}
 	/**
-	 * ver com o julio
-	 * @param c
-	 * @param t
-	 * @param filialName
+	 *	Método que altera o endereço 
+	 * @param c Controler
+	 * @param t referencia se é um filial ou uma company
+	 * @param filialName Nome da filial que deseja alterar o endereço
 	 */
 	public void editAddress(ControlerCompany c, int t, String filialName)
 	{

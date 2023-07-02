@@ -511,6 +511,7 @@ public class EditPatrimony implements ActionListener
 
 	/**
 	 * Sobreescrita do Método actionPerformed da Interface ActionListener reposável por tratar os eventos dos JButtons
+	 * @param evento
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) 

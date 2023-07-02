@@ -30,7 +30,11 @@ public class SearchedPatrimonys implements ActionListener {
 	private JButton back;
 
 	
-	//constructor 
+	/**
+	 * Construtor que gera a tela de busca de Patrimonios
+	 * @param c Controler 
+	 * @param searchedName Nome utilizado na busca
+	 */
 	SearchedPatrimonys(ControlerCompany c, String searchedName){
 		this.searchedName = searchedName;
 		this.c = c;
@@ -340,41 +344,10 @@ public class SearchedPatrimonys implements ActionListener {
 		jf.setVisible(true);
 	}
 	
-//	public static void main(String[] a ) {
-//		
-//		ControlerCompany ca = new ControlerCompany("ololol");
-//		ca.getCompany().createFilial("minha filial");
-//		
-//		Buildings b = null;
-//		Vehicle x = null;
-//		
-//		for(int i = 0; i < 5; i++)
-//		{	
-//			if(i%2 == 0)
-//			{
-//					String v = String.format("casa %d",i);
-//					b = new Buildings(v,15,4000.5,3, 1500.00);
-//					ca.getCompany().getFilials().get(0).add(b);
-//					ca.creatAddresstoBuil("minha filial", v);
-//					ca.getBuildings("minha filial", v).getAddress().setCountry("");
-//					ca.getBuildings("minha filial", v).getAddress().setState("");
-//					ca.getBuildings("minha filial", v).getAddress().setCity("");
-//					ca.getBuildings("minha filial", v).getAddress().setStreet("");
-//					ca.getBuildings("minha filial", v).getAddress().setNumber(0);
-//					ca.getCompany().getFilials().get(0).add(b);
-//				
-//			}else {
-//				String s = String.format("Carro %d",i);
-//				x = new Vehicle(s,15, 20000,"Ferrari 480 Pista","Ferrari",2022);
-//				ca.getCompany().getFilials().get(0).add(x);
-//			}
-//		}
-//		SearchedPatrimonys g = new SearchedPatrimonys(ca,"   ca   ");
-//	}
 	/**
 	 *  Metodo que trata os eventos dos JButton gerados
 	 *  Sobrescreve actionPerformed da interface ActionListener
-	 *  
+	 *  @param e evento
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
