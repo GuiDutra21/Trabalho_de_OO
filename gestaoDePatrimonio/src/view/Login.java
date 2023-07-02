@@ -178,7 +178,7 @@ public class Login implements ActionListener{
 	/**
 	 * Metodo que trata os eventos dos JButton gerados
 	 * Sobrescreve actionPerformed da interface ActionListener
-	 * 
+	 * @param e evento
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
