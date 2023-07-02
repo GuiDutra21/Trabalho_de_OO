@@ -466,35 +466,19 @@ public class PatrimonyScreen implements ActionListener{
 							c.getBuildings(filialName, name).getAddress().setStreet(textFields.get(8).getText());
 							c.getBuildings(filialName, name).getAddress().setNumber(number);							
 							
+							frame.dispose();
 							new FilialMenu(c, filialName);
-							frame.setVisible(false);
-							frame = null;
 
 						}
 						else
 						{
 							JOptionPane.showMessageDialog(frame, "Patrimonio cadastrado com esse nome na filial");
 						}
-						
-						
-						
 					}
 					
-				}
-				
-				
-				
-				
-				
-				
+				}			
 			}
 			
-		}
-		
-		
-			
-		
-		
-	}
-	
+		}		
+	}	
 }

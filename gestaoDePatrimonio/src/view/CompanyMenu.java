@@ -99,7 +99,7 @@ public class CompanyMenu implements ActionListener{
 //		System.out.println(c.getCompanyAddress());
 //		System.out.println(labelWidth);
 //		System.out.println(c.getCompanyAddress().length());
-		labels.get(2).setBounds(screenWidth/2 - labelWidth/2, 100, labelWidth + 5,30);
+		labels.get(2).setBounds(screenWidth/2 - labelWidth/2, 100, labelWidth + 10,30);
 		
 		//the JLabel 'Endereço'
 		labels.add(new JLabel("Endereço :"));

@@ -264,19 +264,20 @@ public class Filial extends Enterprises {
 			for(int i = 0; i < getPatrimony().size(); i++) {
 				if(getPatrimony().get(i).getName().toLowerCase().equals(patrimony.getName().toLowerCase())) {
 					return false;
-				} else if(patrimony.getName().isEmpty() == false && i == getPatrimony().size() - 1) {
+				} 
+				else if(patrimony.getName().isEmpty() == false && i == getPatrimony().size() - 1)
+				{
 					getPatrimony().add(patrimony);
 					verifica = true;
 					return verifica;
-					
 				}
 			}
 		}
-		
 		else
 		{
 			getPatrimony().add(patrimony);
 			verifica = true;
+			return verifica;
 		}
 	
 		
