@@ -33,6 +33,11 @@ public class Login implements ActionListener{
 		return c;
 	}
 	
+	public void setC(ControlerCompany c)
+	{
+		this.c = c;
+	}
+	
 	/**
 	 * Construtor que gera a tela de Login
 	 */

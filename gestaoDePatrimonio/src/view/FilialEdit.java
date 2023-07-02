@@ -16,10 +16,10 @@ import controler.ControlerCompany;
 import model.Address;
 
 /**
- * 
+ * Classe responsável por gerar a tela de edição da Filial
  * @author Guillherme Silva Dutra and Julio Roberto
  * @since 2023
- * 
+ * @version 1.1
  */
 public class FilialEdit implements ActionListener{
 		
@@ -29,6 +29,7 @@ public class FilialEdit implements ActionListener{
 		private List<JTextField> textFields;
 		private JButton button;	
 		private String filialName;
+		
 		
 		public FilialEdit(ControlerCompany c, String filialName)
 		{
