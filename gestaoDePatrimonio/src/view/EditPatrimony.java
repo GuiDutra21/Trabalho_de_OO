@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import java.util.Locale;
 
 import controler.ControlerCompany;
 import view.PatrimonyScreen.Tipo;
@@ -44,7 +45,7 @@ public class EditPatrimony implements ActionListener
 		this.c = c;
 		this.filialName = filialName;
 		/////////////////////////////////////////////////////////
-		
+		Locale.setDefault(Locale.US);
 		textFields = new ArrayList<JTextField>();
 		labels = new ArrayList<JLabel>();
 		buttons = new ArrayList<JButton>();
@@ -180,7 +181,7 @@ public class EditPatrimony implements ActionListener
 			labels.get(10).setFont(new Font("Times New Roman", Font.BOLD, 19));//set the Font
 			
 			///Create the TextField of "Rua"
-			textFields.add(new JTextField(String.format("%d",c.getBuildings(filialName, patrimonyName).getAddress().getNumber())));
+			textFields.add(new JTextField(String.format("%s",c.getBuildings(filialName, patrimonyName).getAddress().getStreet())));
 			textFields.get(8).setBounds(615, 655, 350, 30);//set the position
 			
 			//Create the tenth label
@@ -189,7 +190,7 @@ public class EditPatrimony implements ActionListener
 			labels.get(11).setFont(new Font("Times New Roman",Font.BOLD, 19));//set the Font
 			
 			//Create the TextField of "Numero"
-			textFields.add(new JTextField());
+			textFields.add(new JTextField(String.format("%d",c.getBuildings(filialName, patrimonyName).getAddress().getNumber())));
 			textFields.get(9).setBounds(615, 705, 350, 30);//set the position
 			
 			buttons.add(new JButton("EDITAR"));
@@ -412,7 +413,7 @@ public class EditPatrimony implements ActionListener
 			labels.get(10).setFont(new Font("Times New Roman", Font.BOLD, 19));//set the Font
 			
 			///Create the TextField of "Rua"
-			textFields.add(new JTextField(String.format("%d",c.getBuildings(filialName, patrimonyName).getAddress().getNumber())));
+			textFields.add(new JTextField(String.format("%s",c.getBuildings(filialName, patrimonyName).getAddress().getStreet())));
 			textFields.get(8).setBounds(615, 655, 350, 30);//set the position
 			
 			//Create the tenth label
@@ -421,7 +422,7 @@ public class EditPatrimony implements ActionListener
 			labels.get(11).setFont(new Font("Times New Roman",Font.BOLD, 19));//set the Font
 			
 			//Create the TextField of "Numero"
-			textFields.add(new JTextField());
+			textFields.add(new JTextField(String.format("%d",c.getBuildings(filialName, patrimonyName).getAddress().getNumber())));
 			textFields.get(9).setBounds(615, 705, 350, 30);//set the position
 			
 			buttons.add(new JButton("EDITAR"));
@@ -476,16 +477,12 @@ public class EditPatrimony implements ActionListener
 		textFields.get(1).addActionListener(this);
 		textFields.get(2).addActionListener(this);
 		
-		
-		
-		
-		
+	
 		//////////////////////////////////////////////////////////////////
 		frame.getContentPane().setBackground(new Color(100,150,255));
 		frame.setSize(500,500 );
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		
 		
 		frame.setVisible(true);
 		//////////////////////////////////////////////////////////////////
@@ -596,7 +593,7 @@ public class EditPatrimony implements ActionListener
 						
 						if(verVH[0] == true && verVH[1] == true && verVH[2] == true && verVH[3] == true)
 						{
-							if(c.getFilial(filialName).editPatrimony(this.patrimonyName, name) || name.equals(patrimonyName))
+							if((name.equals(patrimonyName))|| (c.getFilial(filialName).editPatrimony(this.patrimonyName, name)))
 							{
 								c.getVehicle(filialName, name).setValue(value);
 								c.getVehicle(filialName, name).setAmount(qtd);
@@ -606,18 +603,12 @@ public class EditPatrimony implements ActionListener
 								
 								frame.dispose();
 								new FilialMenu(c,filialName);
-								
-
 							}
 							else
 							{
 								JOptionPane.showMessageDialog(frame, "Patrimonio cadastrado com esse nome na filial");
-							}
-							
-							
-							
+							}	
 						}
-						
 					}
 					else
 					{
@@ -678,7 +669,7 @@ public class EditPatrimony implements ActionListener
 						{
 							try
 							{
-								number = Integer.parseInt(textFields.get(4).getText());
+								number = Integer.parseInt(textFields.get(9).getText());
 								
 								verVH[5] = true;
 								
@@ -709,7 +700,6 @@ public class EditPatrimony implements ActionListener
 								frame.dispose();
 								new FilialMenu(c, filialName);
 								
-
 							}
 							else
 							{
@@ -740,15 +730,14 @@ public class EditPatrimony implements ActionListener
 				}
 				
 				if(precisaCodar == false)
-				{
+				{	
+					frame.dispose();
 					new FilialMenu(c,filialName);
-					frame.setVisible(false);
-					frame = null;
 				}
 				else
 				{
 					String name = "";
-					double value =0;
+					double value = 0;
 					int qtd = 0;
 					
 					if(textFields.get(0).getText().isEmpty())
@@ -796,9 +785,7 @@ public class EditPatrimony implements ActionListener
 							verVH[2] = false;
 						}
 							
-					}
-					
-					
+					}	
 					if(isVehicle)
 					{
 						int prodY = 0;
@@ -806,14 +793,12 @@ public class EditPatrimony implements ActionListener
 						if(textFields.get(5).getText().isEmpty())
 						{
 							verVH[3] = true;
-							
 						}
 						else
 						{
 							try
 							{
 								prodY = Integer.parseInt(textFields.get(5).getText());
-								
 								verVH[3] = true;
 								
 							}
@@ -836,16 +821,11 @@ public class EditPatrimony implements ActionListener
 								
 								frame.dispose();
 								new SearchedPatrimonys(c, searchedName);
-								
-
 							}
 							else
 							{
 								JOptionPane.showMessageDialog(frame, "Patrimonio cadastrado com esse nome na filial");
 							}
-							
-							
-							
 						}
 						
 					}
@@ -908,7 +888,7 @@ public class EditPatrimony implements ActionListener
 						{
 							try
 							{
-								number = Integer.parseInt(textFields.get(4).getText());
+								number = Integer.parseInt(textFields.get(9).getText());
 								
 								verVH[5] = true;
 								
@@ -937,23 +917,15 @@ public class EditPatrimony implements ActionListener
 								
 								frame.dispose();
 								new SearchedPatrimonys(c, searchedName);
-								
-
 							}
 							else
 							{
 								JOptionPane.showMessageDialog(frame, "Patrimonio cadastrado com esse nome na filial");
-							}
-									
-						}
-						
-					}
-					
-				}
-				
+							}			
+						}	
+					}	
+				}		
 			}
-		}
-		
-		
+		}	
 	}
 }

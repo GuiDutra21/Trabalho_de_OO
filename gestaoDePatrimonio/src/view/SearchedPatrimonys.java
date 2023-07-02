@@ -101,7 +101,7 @@ public class SearchedPatrimonys implements ActionListener {
 		
 		//The gray JPanel behind
 		panels.add(new JPanel());
-		panels.get(1).setBounds(125, 230, 1250, c.searchPatrimony(searchedName).size() * squareHeight);
+		panels.get(1).setBounds(125, 230, 1250, c.searchPatrimony(searchedName).size() * squareHeight - 50);
 		panels.get(1).setBackground(new Color(220, 220, 220));
 		
 		int labelsQtd = labels.size();
@@ -310,8 +310,7 @@ public class SearchedPatrimonys implements ActionListener {
 			buttons.get(i).addActionListener(this);
 		}
 		
-		
-		
+
 		if(c.searchPatrimony(searchedName).size() == 0)
 		{
 			labels.add(new JLabel("Nenhum patrimônio foi encontrado com esse nome ! :("));
@@ -387,7 +386,6 @@ public class SearchedPatrimonys implements ActionListener {
 						if(e.getSource().equals(buttons.get(i)))
 						{
 							jf.dispose();
-							
 							new EditPatrimony(labels.get(indiceLabelsPName).getText(), PatrimonyScreen.Tipo.VEHICLE,c, EditPatrimony.EDITAR,
 									labels.get(indiceLabels).getText(),searchedName);
 							
@@ -399,6 +397,7 @@ public class SearchedPatrimonys implements ActionListener {
 					{
 						if(e.getSource().equals(buttons.get(i)))
 						{
+							jf.dispose();
 							new EditPatrimony(labels.get(indiceLabelsPName).getText(), PatrimonyScreen.Tipo.BUILDINGS,c,EditPatrimony.EDITAR,
 									labels.get(indiceLabels).getText(), searchedName);
 						}

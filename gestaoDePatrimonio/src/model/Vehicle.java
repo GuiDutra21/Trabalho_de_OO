@@ -117,8 +117,4 @@ public class Vehicle extends Patrimony{
 				+ "Ano de Producao : %d",this.getName(),getAmount(),getValue(), getBrand(), getModel(),getProductionYear());
 		return vehicle;
 	}
-	
-	
-	
-	
 }

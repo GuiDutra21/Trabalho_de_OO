@@ -66,9 +66,9 @@ public class CompanyMenu implements ActionListener{
 		labels.get(0).setFont(new Font("Times New Roman", Font.BOLD, 25));
 		labels.get(0).setOpaque(true);
 		labels.get(0).setBackground(new Color(220, 220, 220));
-		fontMetrics = labels.get(0).getFontMetrics(new Font("Times New Roman", Font.BOLD, 30));//to catch the Dimensions occupied by the JLabel
+		fontMetrics = labels.get(0).getFontMetrics(new Font("Times New Roman", Font.BOLD, 25));//to catch the Dimensions occupied by the JLabel
 		labelWidth = fontMetrics.stringWidth(labels.get(0).getText());//to catch the width occupied by the JLabel
-		labels.get(0).setBounds(screenWidth/2 - labelWidth/2, 23,labelWidth,30);
+		labels.get(0).setBounds(screenWidth/2 - labelWidth/2 + 5, 23,labelWidth,30);
 		
 		panels.get(0).add(labels.get(0));
 		
@@ -91,15 +91,15 @@ public class CompanyMenu implements ActionListener{
 		fontMetrics = labels.get(2).getFontMetrics(new Font("Times New Roman", Font.BOLD, 20));//to catch the Dimensions occupied by the JLabel
 		labelWidth = fontMetrics.stringWidth(labels.get(2).getText());//to catch the width occupied by the JLabel
 		
-		if(labelWidth >= 900)
+		if(labelWidth >= 810)
 		{
-			labelWidth = 830;
+			labelWidth = 800;
 		}
 		//labelWidth = c.getCompanyAddress().length();
 //		System.out.println(c.getCompanyAddress());
 //		System.out.println(labelWidth);
 //		System.out.println(c.getCompanyAddress().length());
-		labels.get(2).setBounds(screenWidth/2 - labelWidth/2, 100, labelWidth + 10,30);
+		labels.get(2).setBounds(screenWidth/2 - labelWidth/2, 100, labelWidth + 15,30);
 		
 		//the JLabel 'Endereço'
 		labels.add(new JLabel("Endereço :"));
@@ -134,23 +134,23 @@ public class CompanyMenu implements ActionListener{
 		
 		//JLabel 'Buscar pelo nome o(s) patrimônio(s) cadastrtado(s) :'
 		labels.add( new JLabel("Buscar pelo nome o(s) patrimônio(s) cadastratado(s) :"));
-		labels.get(6).setBounds(520, 300, 580, 50);
+		labels.get(6).setBounds(480, 300, 580, 50);
 		labels.get(6).setFont(new Font("Times New Roman", Font.BOLD, 25));
 		panels.get(0).add(labels.get(6));
 		
 		//Field where we will enter with the name of the patrimonys
 		search = new JTextField();
-		search.setBounds(520, 380, 510, 35);
+		search.setBounds(500, 380, 500, 35);
 		panels.get(0).add(search);
 		
 		//Button to search the patrimonys
 		buttons.add(new JButton("Buscar"));
-		buttons.get(2).setBounds(695, 460, 150, 30);;
+		buttons.get(2).setBounds(680, 460, 150, 30);;
 		panels.get(0).add(buttons.get(2));
 		
 		//The panel that appear behind the space to search
 		panels.add(new JPanel());
-		panels.get(1).setBounds(395,275,750, 250);
+		panels.get(1).setBounds(380,275,750, 250);
 		panels.get(1).setBackground(new Color(220, 220, 220));
 		panels.get(0).add(panels.get(1));
 		
@@ -164,7 +164,7 @@ public class CompanyMenu implements ActionListener{
 			//Create the big square gray 
 			panels.add(new JPanel());
 			panels.get(2).setBackground(new Color(200, 200, 200));
-			panels.get(2).setBounds(200, 675, 1100, 575 + (c.getCompany().getFilials().size() * 560));
+			panels.get(2).setBounds(200, 675, 1100, 100 + (c.getCompany().getFilials().size() * 660));
 			
 			//Create the Button to add a Filial
 			buttons.add(new JButton("Adicionar Filial"));
@@ -177,7 +177,7 @@ public class CompanyMenu implements ActionListener{
 			int listsSize = - 1;
 			int scrollsSize = -1;
 			int buttonsSize = 3;
-			int squareHeight = 650;
+			int squareHeight = 660;
 			
 			for(int j = 0; j < c.getCompany().getFilials().size(); j++)
 			{	
@@ -241,7 +241,7 @@ public class CompanyMenu implements ActionListener{
 			panels.get(0).add(panels.get(2));
 			
 			//method that allow to extend the screen with the ScrollPanel
-			panels.get(0).setPreferredSize(new Dimension(200, 1650 + (c.getCompany().getFilials().size() * 510)));
+			panels.get(0).setPreferredSize(new Dimension(200, 850 + (c.getCompany().getFilials().size() * 660)));
 		}
 		else
 		{

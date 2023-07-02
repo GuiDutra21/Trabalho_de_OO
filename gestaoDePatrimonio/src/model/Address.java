@@ -99,7 +99,7 @@ public class Address {
 				} else if(i < 3 && i >  0){
 					address = address.concat(String.format("; %s",g[i]));
 				} else if(b[3] == true) {
-					address = address.concat(String.format("; %s, %d",g[i], getNumber()));
+					address = address.concat(String.format("; %s; %d",g[i], getNumber()));
 				} 
 			}
 			

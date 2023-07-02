@@ -440,7 +440,7 @@ public class PatrimonyScreen implements ActionListener{
 					{
 						try
 						{
-							number = Integer.parseInt(textFields.get(4).getText());
+							number = Integer.parseInt(textFields.get(9).getText());
 							
 							verVH[5] = true;
 							
@@ -459,6 +459,7 @@ public class PatrimonyScreen implements ActionListener{
 							c.getBuildings(filialName, name).setValue(value);
 							c.getBuildings(filialName, name).setAmount(qtd);
 							c.getBuildings(filialName, name).setFloorsQtd(andares);
+							c.getBuildings(filialName, name).setArea(area);
 							c.creatAddresstoBuil(filialName, name);
 							c.getBuildings(filialName, name).getAddress().setCountry(textFields.get(5).getText());
 							c.getBuildings(filialName, name).getAddress().setState(textFields.get(6).getText());

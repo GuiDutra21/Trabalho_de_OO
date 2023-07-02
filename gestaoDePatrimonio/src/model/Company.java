@@ -152,18 +152,6 @@ public class Company extends Enterprises {
 		}
 	}
 	
-	public void edit(String filialName, Patrimony patrimony ,String name, Address address, int amount,
-			double value, String newModel, String newBrand, int productionYear, int floorsQTD, double area) {
-		for(int i = 0; i < getFilials().size(); i++) {
-			if(getFilials().get(i).getName().equals(filialName)) {
-				getFilials().get(i).edit(patrimony ,name,address,amount,
-						value, newModel, newBrand,productionYear,floorsQTD, area);
-			}
-		}
-		
-		
-	}
-	
 	//Edit the name of a Patrimony in the Filial mentioned
 	public boolean edit(String filialName, String oldPatName, String newPatName) {
 		boolean verifica = false;

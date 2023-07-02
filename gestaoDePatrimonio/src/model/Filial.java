@@ -31,10 +31,18 @@ public class Filial extends Enterprises {
 		return patrimony;
 	}
 	
+	public double getValue() {
+		double value = 0;
+		
+		for(int i = 0; i < getPatrimony().size(); i++) {
+			value += getPatrimony().get(i).getValue() * getPatrimony().get(i).getAmount() ;
+		}
+		
+		return value;
+	}
 	//Methods
 	
 	//Into a Filial create a Patrimony with all arguments
-	
 	public boolean creatV(String name,int amount, double value, String model, String brand, int productionYear) {
 		boolean verifica = false;
 		if(getPatrimony().size() == 0 && (name.isEmpty() == false)) {
@@ -294,12 +302,11 @@ public class Filial extends Enterprises {
 				
 				for(int j = 0; j < getPatrimony().size(); j ++) {
 					if(getPatrimony().get(j).getName().equals(oldName)) {
-						getPatrimony().get(i).edit(newName);
+						getPatrimony().get(j).edit(newName);
 						verifica = true;
 						return true;
 					}
-				}
-				
+				}	
 			}
 		}
 		
@@ -316,52 +323,6 @@ public class Filial extends Enterprises {
 				getPatrimony().get(i).edit(newValue);
 			}
 		}
-	}
-	
-	public void edit(Patrimony patrimony ,String name, Address address, int amount,
-			double value, String newModel, String newBrand, int productionYear, int floorsQTD, double area) {
-		
-		if(name.isEmpty() == false) {
-			for(int i = 0; i < getPatrimony().size(); i++){
-				if(getPatrimony().get(i).getName().equals(name)) {
-					
-				} else {
-					patrimony.setName(name);
-				}
-			}
-			
-		}
-		
-		if(amount != patrimony.getAmount()) {
-			patrimony.setAmount(amount);
-		}
-		
-		if(value != patrimony.getValue()) {
-			patrimony.setValue(value);
-		}
-		
-		if( patrimony instanceof Vehicle) {
-			
-			Vehicle v = (Vehicle) patrimony;
-			
-			if(newModel != null) {
-				v.setModel(newModel);
-			}
-			
-			if(newBrand != null) {
-				v.setBrand(newBrand);
-			}
-			
-			v.setProductionYear(productionYear);
-			
-			
-		}else if( patrimony instanceof Buildings) {
-			Buildings b = (Buildings) patrimony;
-			b.setFloorsQtd(floorsQTD);
-			b.setArea(area);
-			b.setAddress(address);
-		}
-		
 	}
 	
 	//Into a Filial edit the amount of a Patrimony
@@ -412,14 +373,5 @@ public class Filial extends Enterprises {
 		return filial;
 	}
 	
-	public double getValue() {
-		double value = 0;
-		
-		for(int i = 0; i < getPatrimony().size(); i++) {
-			value += getPatrimony().get(i).getValue() * getPatrimony().get(i).getAmount() ;
-		}
-		
-		return value;
-	}
 	
 }

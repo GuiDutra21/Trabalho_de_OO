@@ -62,7 +62,7 @@ public class FilialMenu implements ActionListener {
 		labels.get(0).setFont(new Font("Times New Roman", Font.BOLD, 20));
 		fontMetrics = labels.get(0).getFontMetrics(new Font("Times New Roman", Font.BOLD, 20));
 		labelWidth = fontMetrics.stringWidth(labels.get(0).getText());
-		labels.get(0).setBounds(screenWidth/2 - labelWidth/2, 23, labelWidth, 30);
+		labels.get(0).setBounds(screenWidth/2 - labelWidth/2, 23, labelWidth + 10, 30);
 		labels.get(0).setOpaque(true);
 		labels.get(0).setBackground(new Color(220, 220, 220, 220));
 		panels.get(0).add(labels.get(0));
@@ -82,7 +82,7 @@ public class FilialMenu implements ActionListener {
 		labels.get(2).setFont(new Font("Times New Roman", Font.BOLD, 20));
 		fontMetrics = labels.get(2).getFontMetrics(new Font("Times New Roman",Font.BOLD, 20));
 		labelWidth = fontMetrics.stringWidth(labels.get(2).getText());
-		labels.get(2).setBounds(screenWidth/2 - labelWidth/2, 100,labelWidth,30);
+		labels.get(2).setBounds(screenWidth/2 - labelWidth/2, 100,labelWidth + 10,30);
 		labels.get(2).setOpaque(true);
 		labels.get(2).setBackground(new Color(220, 220, 220, 220));
 		
@@ -322,10 +322,10 @@ public class FilialMenu implements ActionListener {
 				panels.get(0).add(panels.get(panels.size() - 1));
 			}
 			
-			for(int i = 0; i < buttons.size(); i++)
-			{
-				buttons.get(i).addActionListener(this);
-			}
+//			for(int i = 0; i < buttons.size(); i++)
+//			{
+//				buttons.get(i).addActionListener(this);
+//			}
 			
 			panels.get(0).add(panels.get(1));//add the panel gray
 		} 
@@ -333,14 +333,19 @@ public class FilialMenu implements ActionListener {
 		{
 			
 			add = new JButton("Adicionar Veículo");
-			add.setBounds(660, 320 , 200, 30);
+			add.setBounds(500, 320 , 200, 30);
 			add.addActionListener(this);
 			panels.get(0).add(add);
 			
 			add1 = new JButton("Adicionar Propriedade");
-			add1.setBounds(660, 350 , 200, 30);
+			add1.setBounds(800, 320 , 200, 30);
 			add1.addActionListener(this);
 			panels.get(0).add(add1);
+		}
+		
+		for(int i = 0; i < buttons.size(); i++)
+		{
+			buttons.get(i).addActionListener(this);
 		}
 		
 		panels.get(0).setPreferredSize(new Dimension(200, 450 + (c.getPatrimonys(name).size() * 700)));//allow to create the scroll
@@ -350,9 +355,9 @@ public class FilialMenu implements ActionListener {
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		jf.setVisible(true);
 		
-		for(int i = 0; i < buttons.size(); i++) {
-			buttons.get(i).addActionListener(this);
-		}
+//		for(int i = 0; i < buttons.size(); i++) {
+//			buttons.get(i).addActionListener(this);
+//		}
 		
 	}
 	
@@ -362,6 +367,7 @@ public class FilialMenu implements ActionListener {
 	{
 		if(e.getSource().equals(voltar)) 
 		{
+			jf.dispose();
 			new CompanyMenu(c);
 		}
 //-------------------------------Button 0 --------------------------------------------------------------		
@@ -380,7 +386,8 @@ public class FilialMenu implements ActionListener {
 						if(c.getCompany().editFilial(this.name, novoNome))
 						{
 							this.name = novoNome;
-							labels.get(0).setText(novoNome);
+							//labels.get(0).setText(novoNome);
+							new FilialMenu(c,novoNome);
 							verifica = true;
 							
 						} 
@@ -394,6 +401,7 @@ public class FilialMenu implements ActionListener {
 				else 
 				{
 					verifica = true;
+					new FilialMenu(c,novoNome);
 				}
 			}
 		}
@@ -421,7 +429,7 @@ public class FilialMenu implements ActionListener {
 			
 		}
 //-----------------------------------------------------------------------------------------------------
-		if(buttons.size() >2 )
+		if(buttons.size() > 2 )
 		{
 			if(e.getSource().equals(buttons.get(2)))
 			{
@@ -443,7 +451,6 @@ public class FilialMenu implements ActionListener {
 				{
 					if(e.getSource().equals(buttons.get(i)))
 					{
-						
 						if(c.isVehicle(name, labels.get(labelsindice).getText()))
 						{
 							System.out.println(i);
@@ -456,9 +463,6 @@ public class FilialMenu implements ActionListener {
 							jf.dispose();
 							new EditPatrimony(labels.get(labelsindice).getText(),PatrimonyScreen.Tipo.BUILDINGS,c, name);
 						}
-						
-						
-						
 					}
 				}
 				else 
