@@ -41,8 +41,9 @@ public class Login implements ActionListener{
 	/**
 	 * Construtor que gera a tela de Login
 	 */
-	public Login()
-	{
+	public Login(ControlerCompany c)
+	{	
+		this.c = c;
 		jf = new JFrame();
 		
 		//The Layout null permitted us to choose the position of the elements  
@@ -188,7 +189,8 @@ public class Login implements ActionListener{
 			if(textFields.get(0).getText().isEmpty()) {
 				JOptionPane.showMessageDialog(jf, "O nome dever ser preenchido");
 			}else {
-				c = new ControlerCompany(textFields.get(0).getText());
+				c.getCompany().setName(textFields.get(0).getText());
+				c.setCompanyName(textFields.get(0).getText());
 				boolean verifica = false;
 				while(verifica == false && textFields.get(5).getText().isEmpty() == false) {
 					try {
