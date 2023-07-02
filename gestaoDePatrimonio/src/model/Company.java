@@ -39,7 +39,8 @@ public class Company extends Enterprises {
 		
 		for(int i = 0; i < getFilials().size(); i++) {
 			for(int j = 0; j < getFilials().get(i).getPatrimony().size(); j++) {
-				value += getFilials().get(i).getPatrimony().get(j).getValue() * getFilials().get(i).getPatrimony().get(j).getAmount() ;
+				value += getFilials().get(i).getPatrimony().get(j).getValue() * 
+						getFilials().get(i).getPatrimony().get(j).getAmount() ;
 			}
 		}
 		
