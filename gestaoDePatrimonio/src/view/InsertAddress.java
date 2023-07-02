@@ -11,6 +11,12 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ *  Classe responsavel por gerar a tela de cadastro de um endereço.
+ * @author Julio Roberto e Guilherme Silva
+ * @since 2023
+ * @version 1.1
+ */
 
 public class InsertAddress implements ActionListener {
 	
@@ -244,6 +250,11 @@ public class InsertAddress implements ActionListener {
 		jf.setVisible(true);
 	}
 	
+	/**
+	 * Metodo que trata os eventos dos JButton gerados
+	 * Sobrescreve actionPerformed da interface ActionListener
+	 * 
+	 */
 	
 	@Override
 	public void actionPerformed(ActionEvent e) 

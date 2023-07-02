@@ -11,6 +11,13 @@ import model.Address;
 
 import java.awt.Font;
 
+/**
+ * Classe responsavel por gerar a tela de login.
+ * @author Julio Roberto e Guilherme Silva
+ * @since 2023
+ * @version 1.1
+ */
+
 public class Login implements ActionListener{
 	
 	private JFrame jf;
@@ -153,6 +160,11 @@ public class Login implements ActionListener{
 		
 	}
 
+	/**
+	 * Metodo que trata os eventos dos JButton gerados
+	 * Sobrescreve actionPerformed da interface ActionListener
+	 * 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Integer number = 0;

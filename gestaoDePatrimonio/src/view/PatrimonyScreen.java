@@ -14,7 +14,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import controler.ControlerCompany;
-
+/**
+ * Classe responsavel por gerar a tela de cadastro de um patrimõnio.
+ * @author Julio Roberto e Guilherme Silva
+ * @since 2023
+ * @version 1.1
+ */
 public class PatrimonyScreen implements ActionListener{
 	private JFrame frame;
 	private List<JButton> buttons;
@@ -253,7 +258,11 @@ public class PatrimonyScreen implements ActionListener{
 		//////////////////////////////////////////////////////////////////
 	}
 
-
+	/**
+	 * Metodo que trata os eventos dos JButton gerados
+	 * Sobrescreve actionPerformed da interface ActionListener
+	 * 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{

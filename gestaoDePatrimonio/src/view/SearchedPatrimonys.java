@@ -12,7 +12,12 @@ import model.Vehicle;
 import model.Company;
 import controler.ControlerCompany;
 
-
+/**
+ *  Classe que busca os patrimõnios dado o nome
+ * @author Julio Roberto e Guilherme Silva
+ * @since 2023
+ * @version 1.1
+ */
 public class SearchedPatrimonys implements ActionListener {
 	
 	private JFrame jf;
@@ -366,6 +371,11 @@ public class SearchedPatrimonys implements ActionListener {
 //		}
 //		SearchedPatrimonys g = new SearchedPatrimonys(ca,"   ca   ");
 //	}
+	/**
+	 *  Metodo que trata os eventos dos JButton gerados
+	 *  Sobrescreve actionPerformed da interface ActionListener
+	 *  
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(back))
