@@ -30,6 +30,22 @@ public class Company extends Enterprises {
 		return filials;
 	}
 
+	public int getAmount() {
+		return getFilials().size();
+	}
+	
+	public double getValue() {
+		double value = 0.0;
+		
+		for(int i = 0; i < getFilials().size(); i++) {
+			for(int j = 0; j < getFilials().get(i).getPatrimony().size(); j++) {
+				value += getFilials().get(i).getPatrimony().get(j).getValue() * getFilials().get(i).getPatrimony().get(j).getAmount() ;
+			}
+		}
+		
+		return value;
+	}
+
 	public boolean addFilial(Filial filial) {
 		boolean verifica = false;
 		if(getFilials().size() == 0 && filial.getName().isEmpty() == false) {
@@ -48,9 +64,7 @@ public class Company extends Enterprises {
 				}
 			}
 		}
-		
-		
-		
+
 		return verifica;
 		
 	}
@@ -245,19 +259,4 @@ public class Company extends Enterprises {
 	}	
 	
 
-	public int getAmount() {
-		return getFilials().size();
-	}
-	
-	public double getValue() {
-		double value = 0.0;
-		
-		for(int i = 0; i < getFilials().size(); i++) {
-			for(int j = 0; j < getFilials().get(i).getPatrimony().size(); j++) {
-				value += getFilials().get(i).getPatrimony().get(j).getValue();
-			}
-		}
-		
-		return value;
-	}
 }
