@@ -216,7 +216,8 @@ public class Buildings extends Patrimony {
 	
 	/**
 	 * Sobrescrita do método toString() das classe Object e Buildings. 
-	 * Constroi uma String contendo os valores de todos os atributos da classe Buildings separados por ponto e vírgula
+	 * Constroi uma String contendo os valores de todos os atributos da classe
+	 * Buildings separados por ponto e vírgula, além do quebra linha.
 	 * @return String
 	 */
 	public String toString()

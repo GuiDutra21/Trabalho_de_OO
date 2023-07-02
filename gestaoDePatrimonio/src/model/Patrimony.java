@@ -21,7 +21,7 @@ public abstract class Patrimony {
 	/**
 	 * Construtor Principal que atribui valor para todos os atributos.
 	 * @param name Nome
-	 * @param amount Quantidade do prórpio Patrimonio
+	 * @param amount Quantidade do respectivo Patrimonio
 	 * @param value Valor 
 	 */
 	public Patrimony(String name, int amount, double value) {
@@ -32,7 +32,7 @@ public abstract class Patrimony {
 	/**
 	 * Sobrescrita do construtor que atribui o valor do parâmetro para o atributo nome.
 	 * Atribui ao atributo amount o valor de 1, 
-	 * pois não tem como criar algo que não tenha qunatidade.
+	 * pois quando se instancia um patrimônio é necessário que exista ao menos um patrimônio desse.
 	 * Atribui ao atributo value o valor de 0 
 	 * @param name Nome 
 	 */
@@ -44,7 +44,7 @@ public abstract class Patrimony {
 	 * Sobrescrita do construtor que atribui o valor dos parâmetros 
 	 * para os respectivos atributos name e value.
 	 * Atribui ao atributo amount o valor de 1,
-	 * pois não tem como criar algo que não tenha quantidade
+	 * pois quando se instancia um patrimônio é necessário que exista ao menos um patrimônio desse.
 	 * @param name nome 
 	 * @param value valor
 	 */
