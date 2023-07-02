@@ -340,7 +340,28 @@ public class Company extends Enterprises {
 		
 		return verifica;
 	}	
-	
+	/**
+	 * Método que busca pelo nome os patrimonios cadastrados.
+	 * Retorna o Array desses patrimonios.
+	 * @param name nome a ser buscados
+	 * @return A lista de patriminios com o nome buscado
+	 */
+	public List<Patrimony> search(String name)
+	{
+		List<Patrimony> patrimonys = new ArrayList<>();
+		
+		for(int i = 0; i < getFilials().size(); i++)
+		{
+			for(int j = 0; i < getFilials().get(i).getPatrimony().size(); j++)
+			{
+				if(getFilials().get(i).getPatrimony().get(j).getName().toLowerCase().equals(name.toLowerCase()))
+				{
+					patrimonys.add(getFilials().get(i).getPatrimony().get(j));
+				}
+			}
+		}
+		return patrimonys;
+	}
 	//method toString that returns the name of the Company, the Address and the Array of Filials into a formated String
 	
 	/**
