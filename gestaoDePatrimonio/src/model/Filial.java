@@ -2,6 +2,13 @@ package model;
 
 import java.util.List;
 import java.util.ArrayList;
+/**
+ * Classe Filial herda de Enterprises e simula o comportamento de uma filial.
+ * @author Julio Roberto e Guilherme Silva
+ * @since 2023
+ * @version 1.1
+ *
+ */
 
 public class Filial extends Enterprises {
 	
