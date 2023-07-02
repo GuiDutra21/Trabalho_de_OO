@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * Classe abstrata Enterprises que simula o comportamento de um empresa genérica.
+ * @author Guilherme Silva Dutra and Julio ROberto
+ * @Since 2023
+ * @version 1.1
+ */
 public abstract class Enterprises{
 	
 	// ATRIBUTES
@@ -26,17 +32,26 @@ public abstract class Enterprises{
 	
 	//Methods
 	
-	//Method that edits the name
+	/**
+	 * Método que edita o nome 
+	 * @param name Nome
+	 */
 	public void edit(String name) {
 		setName(name);
 	}
 	
-	//Method that edits the Address
+	/**
+	 * Método que edita o Endereço 
+	 * @param address Endereço
+	 */
 	public void edit(Address adress) {
 		setAddress(adress);
 	}
-	
-	//Method that edits the name and the Address
+	/**
+	 * Método que edita o nome e o Endereço
+	 * @param name Nome
+	 * @param address Endereço
+	 */
 	public void edit(String name, Address address) {
 		setAddress(address);
 		setName(name);
